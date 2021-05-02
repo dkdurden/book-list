@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: #d4d2ca;
+  font-size: 1.6rem;
+}
+
+.btn {
+  border: 0;
+  padding: 0.5rem;
+}
+
+.error {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: rgb(255, 98, 98);
+  border: 1px solid red;
+}
+
+.success {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: rgb(64, 129, 64);
+  border: 1px solid green;
+}

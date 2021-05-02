@@ -1,0 +1,58 @@
+@use 'variables';
+
+.book-list {
+  width: 750px;
+  min-height: 250px;
+  position: relative;
+  z-index: 1;
+
+  &__header {
+    height: 50px;
+    background-color: variables.$color-dark;
+    padding: 0 2rem;
+
+    h1 {
+      color: white;
+    }
+
+    &.flex {
+      justify-content: space-between;
+    }
+  }
+
+  &__content {
+    background-color: variables.$color-light;
+    width: 100%;
+    padding: 2rem 3rem;
+    height: 300px;
+    overflow: auto;
+  }
+
+  &__table {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    white-space: nowrap;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+
+    thead {
+      border-bottom: 1px solid black;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 1rem;
+    }
+    tr:nth-child(even) {
+      background-color: variables.$color-bg;
+    }
+  }
+
+  &__remove-btn {
+    background-color: #a84648;
+    padding: 0.25rem 0.5rem;
+    color: white;
+  }
+}
