@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,26 +14,35 @@ body {
   place-items: center;
   height: 100vh;
   background-color: #d4d2ca;
+  font-family: "Oswald", sans-serif;
   font-size: 1.6rem;
 }
 
 .btn {
   border: 0;
+  border-radius: 2px;
   padding: 0.5rem;
+  font-family: "Oswald", sans-serif;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.error,
+.success {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .error {
-  padding: 0.5rem;
-  text-align: center;
-  background-color: #ff6262;
-  border: 1px solid red;
+  background-color: #f93154;
 }
 
 .success {
-  padding: 0.5rem;
-  text-align: center;
-  background-color: #408140;
-  border: 1px solid green;
+  background-color: #00b74a;
 }
 
 .flex {
@@ -47,14 +57,16 @@ body {
 
 .book-list {
   width: 750px;
-  min-height: 250px;
   position: relative;
   z-index: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .book-list__header {
   height: 50px;
   background-color: #242a2f;
   padding: 0 2rem;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .book-list__header h1 {
   color: white;
@@ -66,8 +78,10 @@ body {
   background-color: #ece9e0;
   width: 100%;
   padding: 2rem 3rem;
-  height: 300px;
+  height: 400px;
   overflow: auto;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 .book-list__table {
   width: 100%;
@@ -75,23 +89,31 @@ body {
   overflow: auto;
   white-space: nowrap;
   border-collapse: collapse;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .book-list__table thead {
   border-bottom: 1px solid black;
+}
+.book-list__table tr:nth-child(even) {
+  background-color: #d4d2ca;
 }
 .book-list__table th,
 .book-list__table td {
   text-align: left;
   padding: 1rem;
 }
-.book-list__table tr:nth-child(even) {
-  background-color: #d4d2ca;
+.book-list__table td {
+  font-family: "Poppins", sans-serif;
 }
 .book-list__remove-btn {
   background-color: #a84648;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 1rem;
   color: white;
+}
+@media (max-width: 768px) {
+  .book-list {
+    width: 100%;
+  }
 }
 
 .modal {
@@ -104,6 +126,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 3px;
 }
 .modal.flex {
   flex-direction: column;
@@ -119,9 +143,21 @@ body {
   flex-direction: column;
   margin: 4rem;
 }
+.modal__form-control label {
+  margin-bottom: 0.5rem;
+}
+.modal__form-control input {
+  font-size: 1.2em;
+  padding: 0.75rem;
+}
 .modal__submit-btn {
   display: block;
   margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

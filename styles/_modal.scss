@@ -10,6 +10,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 3px;
 
   &.flex {
     flex-direction: column;
@@ -26,10 +29,23 @@
     display: flex;
     flex-direction: column;
     margin: 4rem;
+
+    label {
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      font-size: 1.2em;
+      padding: 0.75rem;
+    }
   }
 
   &__submit-btn {
     display: block;
     margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }

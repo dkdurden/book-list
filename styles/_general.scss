@@ -1,3 +1,5 @@
+@use 'variables';
+
 * {
   margin: 0;
   padding: 0;
@@ -12,25 +14,35 @@ body {
   display: grid;
   place-items: center;
   height: 100vh;
-  background-color: #d4d2ca;
+  background-color: variables.$color-bg;
+  font-family: variables.$font-family-primary;
   font-size: 1.6rem;
 }
 
 .btn {
   border: 0;
+  border-radius: 2px;
   padding: 0.5rem;
+  font-family: variables.$font-family-primary;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.error,
+.success {
+  font-family: variables.$font-family-secondary;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .error {
-  padding: 0.5rem;
-  text-align: center;
-  background-color: rgb(255, 98, 98);
-  border: 1px solid red;
+  background-color: #f93154;
 }
 
 .success {
-  padding: 0.5rem;
-  text-align: center;
-  background-color: rgb(64, 129, 64);
-  border: 1px solid green;
+  background-color: #00b74a;
 }

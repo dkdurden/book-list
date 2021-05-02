@@ -22,8 +22,10 @@ function UI() {
 /* UI Methods */
 
 UI.prototype.loadClickEvents = function () {
+  // Good practice, so events can be removed with removeEventListener
   this.addClickEventListener = this.displayModal.bind(this);
   this.removeClickEventListener = this.removeBook.bind(this);
+
   this.addBtnUI.addEventListener('click', this.addClickEventListener);
   this.bookListUI.addEventListener('click', this.removeClickEventListener);
 };
@@ -170,9 +172,12 @@ UI.prototype.displayAlert = function (status, message) {
   }, 3000);
 };
 
+// For local storage
 function Store() {
   this.books = [];
 }
+
+/* Local storage methods */
 
 Store.prototype.getBooksFromLS = function () {
   if (localStorage.getItem('books') !== null)
@@ -210,6 +215,7 @@ Store.prototype.removeBookFromLS = function (bookToRemove) {
   this.setBooksToLS();
 };
 
+// Main function
 function main() {
   const ui = new UI();
   ui.displayBooksFromStore();
@@ -217,82 +223,3 @@ function main() {
 }
 
 main();
-
-//let bookCount = 0;
-
-//loadEventListeners();
-
-// function loadEventListeners() {
-//   addBtnUI.addEventListener('click', displayModal);
-// }
-
-// function displayModal() {
-//   const modalUI = createModal();
-//   document.body.appendChild(modalUI);
-// }
-
-// function hideModal() {
-//   const modalUI = document.querySelector('.modal');
-//   modalUI.querySelector('form').removeEventListener('submit', handleBookSubmit);
-//   modalUI.remove();
-// }
-
-// function createModal() {
-//   const modalUI = document.createElement('div');
-//   modalUI.className = 'modal flex';
-
-//   let modalInnerHtml = `
-//     <h2>Add a book</h2>
-//     <form class="modal__form">
-//         <div class="modal__form-control">
-//             <label for="title">Title</label>
-//             <input type="text" name="title" id="title" />
-//         </div>
-//         <div class="modal__form-control">
-//             <label for="author">Author</label>
-//             <input type="text" name="author" id="author" />
-//         </div>
-//         <div class="modal__form-control">
-//             <label for="isbn">ISBN</label>
-//             <input type="text" name="isbn" id="isbn" />
-//         </div>
-//         <input type="submit" value="Submit" class="btn modal__submit-btn" />
-//     </form>
-//   `;
-
-//   modalUI.innerHTML = modalInnerHtml;
-
-//   modalUI.querySelector('form').addEventListener('submit', handleBookSubmit);
-
-//   return modalUI;
-// }
-
-// function handleBookSubmit(e) {
-//   e.preventDefault();
-
-//   const bookTitle = document.querySelector('#title').value;
-//   const bookAuthor = document.querySelector('#author').value;
-//   const bookIsbn = document.querySelector('#isbn').value;
-
-//   const newBook = new Book(bookTitle, bookAuthor, bookIsbn);
-
-//   addBook(newBook);
-
-//   hideModal();
-// }
-
-// function addBook(book) {
-//   const newBookUI = document.createElement('tr');
-//   const bookHtmlString = `
-//         <tr>
-//             <td>${bookCount + 1}</td>
-//             <td>${book.title}</td>
-//             <td>${book.author}</td>
-//             <td>${book.isbn}</td>
-//         </tr>
-//     `;
-//   newBookUI.innerHTML = bookHtmlString;
-
-//   bookListUI.appendChild(newBookUI);
-//   bookCount++;
-// }
