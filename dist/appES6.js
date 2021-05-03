@@ -119,9 +119,11 @@ class UI {
   }
 
   removeBook(e) {
-    if ((e.target.className = 'btn book-list__remove-btn')) {
+    if (e.target.className === 'btn book-list__remove-btn') {
       e.target.parentElement.parentElement.remove();
       this.updateNumbers();
+
+      this.displayAlert('success', 'Book removed!');
 
       let isbnNode = e.target.parentElement.previousElementSibling;
 
